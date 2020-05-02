@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './components/shared/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { TableComponent } from './table/table.component';
-import { CommentsComponent } from './comments/comments.component';
+import { TableComponent } from './components/shared/table/table.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
