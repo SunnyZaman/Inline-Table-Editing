@@ -1,2 +1,27 @@
-<app-table></app-table>
-<button mat-flat-button color="warn">Generate Invoice</button>
+<main class="p-15">
+  <h1>Service Fees</h1>
+  <mat-divider></mat-divider>
+  <section class="container">
+    <div fxLayoutAlign="start start">
+      <div class="w-100" fxLayout="row wrap">
+        <div fxFlex.xl="70" fxFlex.lg="70" fxFlex.md="70" fxFlex.sm="100" fxFlex.xs="100">
+          <app-table></app-table>
+          <button mat-flat-button color="warn">Generate Invoice</button>
+        </div>
+        <div fxFlex.xl="30" fxFlex.lg="30" fxFlex.md="30" fxFlex.sm="100" fxFlex.xs="100">
+          <!-- Will create a fake comment section -->
+          <div class="w-100">
+            <label>Comments:</label>
+            <mat-form-field appearance="outline" floatLabel="never" class="w-100">
+              <textarea matInput matTextareaAutosize required matAutoSize required type="text" [matAutosizeMinRows]="5"
+                [matAutosizeMaxRows]="5" aria-label="Comment Section"></textarea>
+            </mat-form-field>
+            <div fxLayoutAlign="end start">
+              <button mat-flat-button color="primary" aria-label="Add comment">Add Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
