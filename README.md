@@ -8,7 +8,7 @@ ng add @angular/material
 ng g m material
 ng g c test-component --flat -it -is --skipTests
 ```
-* --flat -> prevent folder creation
-* -it -> prevent html file creation
-* -is -> prevent style file creation
-* --skipTests -> prevent .spec file creation
+* **--flat:** prevents folder creation
+* **-it:** prevents html file creation
+* **-is:** prevents style file creation
+* **--skipTests:** prevents .spec file creation
