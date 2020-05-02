@@ -7,11 +7,13 @@ import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { TableComponent } from './table/table.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+    TableComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
