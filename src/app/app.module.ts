@@ -8,12 +8,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { TableComponent } from './components/shared/table/table.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { ServiceFeesComponent } from './components/service-fees/service-fees.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    CommentsComponent
+    CommentsComponent,
+    ServiceFeesComponent
   ],
   imports: [
     BrowserModule,
