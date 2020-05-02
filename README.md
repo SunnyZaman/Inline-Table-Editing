@@ -1,2 +1,2 @@
-# Inline-Table-Editing
-An angular material component. Users can edit inline in a table
+# Service Fee System
+Displaying a number of services, where users can pay and generate invoices.
