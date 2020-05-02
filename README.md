@@ -4,6 +4,7 @@ Displaying a number of services, where users can pay and generate invoices.
 ## My Notes
 
 ```bash
+npm i @angular/flex-layout
 ng add @angular/material
 ng g m material
 ng g c test-component --flat -it -is --skipTests
