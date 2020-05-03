@@ -1,6 +1,7 @@
 .table-container {
     overflow: auto;
     table {
+      width: 100%;
       min-width: 500px;
       overflow: scroll;
         .mat-row:nth-child(even){
