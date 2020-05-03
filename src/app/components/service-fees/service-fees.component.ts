@@ -8,6 +8,11 @@ import * as serviceData from "src/assets/service-data";
   styleUrls: ['./service-fees.component.scss']
 })
 export class ServiceFeesComponent implements OnInit {
+  formatter = new Intl.NumberFormat("en-CA", {
+    style: "currency",
+    currency: "CAD",
+    minimumFractionDigits: 2
+  });
   tableData:ServiceFee[];
   tableHeaders = [
     {
@@ -28,7 +33,7 @@ export class ServiceFeesComponent implements OnInit {
     {
       key: "Total",
       text: "Total",
-      cell: (row: any) => `${row.Total}`
+      cell: (row: any) => `${this.formatter.format(row.Total)}`
     }
   ];
   constructor() {
