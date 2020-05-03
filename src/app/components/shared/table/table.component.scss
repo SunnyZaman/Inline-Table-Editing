@@ -20,10 +20,24 @@
           .mat-cell:last-of-type, .mat-header-cell:last-of-type{
             border-right: none;
             width: 10px;
+            text-align: center;
           }
           .mat-cell:first-of-type, .mat-header-cell:first-of-type{
             width: 10px;
           }
     }
   }
+
+// Edit button
+.edit-button {
+  background-color: #ffffff;
+  border: 1px solid #274d8a;
+  color:#274d8a;
+  transition: all 0.5s;
+  &:hover{
+    border-color: #ffffff;
+    color:#ffffff;
+    background-color: #274d8a;
+  }
+}
 
