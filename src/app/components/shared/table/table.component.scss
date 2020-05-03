@@ -1,0 +1,21 @@
+.table-container {
+    overflow: auto;
+    table {
+      min-width: 500px;
+      overflow: scroll;
+        .mat-row:nth-child(even){
+          background-color:#ffffff !important;
+          }  
+        .mat-row:nth-child(odd){
+          background-color:#f9f9f9 !important;
+          }
+          td {
+            padding: 10px !important;
+              border-right:1px solid rgba(0,0,0,.12) !important;
+          }
+          .mat-cell:last-of-type, .mat-footer-cell:last-of-type{
+            border-right: none !important;
+          }
+    }
+  }
+
