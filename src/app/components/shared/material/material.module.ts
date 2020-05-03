@@ -9,9 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 const MaterialComponents = [
   MatButtonModule,MatDividerModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule,
-  MatSortModule, MatTableModule
+  MatSortModule, MatTableModule, MatTooltipModule
 ]
 @NgModule({
   imports: [MaterialComponents],
