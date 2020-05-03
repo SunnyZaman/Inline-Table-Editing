@@ -29,8 +29,8 @@
                 <td mat-cell *matCellDef="let element">
                     <div class="button-row">
                         <button *ngIf="canEdit" mat-icon-button (click)="edit(element)"
-                            attr.aria-label="{{'Edit' + title + 'button'}}">
-                            <mat-icon class="edit-button" tabindex="-1" matTooltip="{{'Edit' + title}}"> edit</mat-icon>
+                            attr.aria-label="{{'Edit ' + title + ' button'}}">
+                            <mat-icon class="edit-button" tabindex="-1" matTooltip="{{'Edit ' + title}}"> edit</mat-icon>
                         </button>
                     </div>
                 </td>
