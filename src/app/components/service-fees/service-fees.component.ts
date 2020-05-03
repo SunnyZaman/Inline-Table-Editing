@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceFee } from 'src/app/models/service-fee';
 import * as serviceData from "src/assets/service-data";
+import { ServiceEditComponent } from '../shared/dialogs/service-edit/service-edit.component';
+import { MatDialog } from '@angular/material/dialog';
+import { map, finalize } from "rxjs/operators";
 
 @Component({
   selector: 'app-service-fees',
@@ -36,15 +39,50 @@ export class ServiceFeesComponent implements OnInit {
       cell: (row: any) => `${this.formatter.format(row.Total)}`
     }
   ];
-  constructor() {
+  constructor(
+    public dialog: MatDialog,
+  ) {
     this.tableData = serviceData.default.Data;
    }
 
   ngOnInit(): void {
   }
   edit(fee:ServiceFee){
-
+    this.openEditDialog(fee)
+    .pipe(
+      map((result: ServiceFee) => {
+        if (result !== null) {
+          console.log("result: ", result);
+            const index = this.tableData.findIndex(
+              x => x.Id === result.Id
+            );
+            this.tableData[index] = result;
+            // this.listLoaded = false;
+            // this.dataChanged();
+          }
+      }),
+      finalize(() => {
+        // setTimeout(() => {
+        //   this.listLoaded = true;
+        // }, 250);
+      })
+    )
+    .subscribe();
   }
+  openEditDialog(fee:ServiceFee){
+  const title = "Edit Service Fee";
+  const saveLabel = "Save";
+  const dialogRef = this.dialog.open(ServiceEditComponent, {
+    width: "95%",
+    disableClose: true,
+    data: {
+      feeObj: fee,
+      title: title,
+      saveLabel: saveLabel
+    }
+  });
+  return dialogRef.afterClosed().pipe(map(res => res));
+}
   select(fee:ServiceFee){
     
   }
