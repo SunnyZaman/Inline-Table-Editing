@@ -10,6 +10,7 @@ import { TableComponent } from './components/shared/table/table.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { ServiceFeesComponent } from './components/service-fees/service-fees.component';
 import { ServiceEditComponent } from './components/shared/dialogs/service-edit/service-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { ServiceEditComponent } from './components/shared/dialogs/service-edit/s
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   entryComponents: [
     ServiceEditComponent
