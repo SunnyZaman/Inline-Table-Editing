@@ -18,6 +18,7 @@ export class ServiceFeesComponent implements OnInit {
     minimumFractionDigits: 2
   });
   tableData: ServiceFee[];
+  invoiceData: ServiceFee[] = [];
   feeForm: FormGroup;
   depositOptions = [0.5, 1];
   tableHeaders = [
@@ -92,7 +93,16 @@ export class ServiceFeesComponent implements OnInit {
     });
     return dialogRef.afterClosed().pipe(map(res => res));
   }
-  select(fee: ServiceFee) {
+  select(fees: ServiceFee[]) {
+    this.invoiceData = fees.sort((a, b) => {
+      return a.Id - b.Id;
+    });
+  }
+  generateInvoice() {
+    if (this.invoiceData.length !== 0) {
+      alert("Genertated: " + JSON.stringify(this.invoiceData));
+      console.log(this.invoiceData);
+    }
 
   }
   getTotal() {
