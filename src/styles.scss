@@ -50,3 +50,15 @@ mat-icon:focus { outline:0 !important; }
     font-style: italic;
     font-weight: 200;
 }
+.comment-container{
+  overflow: auto;
+  .comment-cell{
+    height: 100%;
+    max-height: 55px;
+    
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;
+  }
+}

@@ -13,5 +13,6 @@
     </mat-form-field>
 </form>
 <div fxLayoutAlign="end start">
-    <button mat-flat-button color="primary" aria-label="Add comment">Add Comment</button>
+    <button mat-flat-button color="primary" aria-label="Add comment" [disabled]="!commentForm.get('comment').value.length" 
+    (click)="addComment()">Add Comment</button>
 </div>

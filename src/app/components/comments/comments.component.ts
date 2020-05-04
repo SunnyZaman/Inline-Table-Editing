@@ -13,20 +13,20 @@ export class CommentsComponent implements OnInit {
     {
       key: "Information",
       text: "Information",
-      style:{'color': '#355796', 'font-weight': 700},
+      style: { 'color': '#355796', 'font-weight': 700 },
       cell: (row: any) => `${row.Information}<br/><span class="comment-info">${row.Date}</span>`
     },
     {
       key: "Comment",
       text: "Comment",
-      cell: (row: any) => `${row.Comment}`
+      cell: (row: any) => `<div class="comment-container"><div class="comment-cell">${row.Comment}</div></div>`
     },
   ];
   constructor(
     private formBuilder: FormBuilder
-  ) { 
+  ) {
     this.commentForm = this.formBuilder.group({
-      comment:""
+      comment: ""
     });
   }
 
@@ -38,6 +38,17 @@ export class CommentsComponent implements OnInit {
         Comment: "This application is built with Angular Material"
       }
     ]
+  }
+
+  addComment() {
+    const comment = this.commentForm.controls.comment.value;
+    this.comments.unshift({
+      Information: "Sunny Zaman", //Will be the user
+      Date: new Date().toISOString().split("T")[0],
+      Comment: comment
+    });
+    this.comments = [...this.comments];
+   
   }
 
 }
