@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
   comments = [];
+  commentForm: FormGroup;
   tableHeaders = [
     {
       key: "Information",
@@ -20,13 +22,19 @@ export class CommentsComponent implements OnInit {
       cell: (row: any) => `${row.Comment}`
     },
   ];
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder
+  ) { 
+    this.commentForm = this.formBuilder.group({
+      comment:""
+    });
+  }
 
   ngOnInit(): void {
     this.comments = [
       {
         Information: "Sunny Zaman",
-        Date: new Date().toDateString(),
+        Date: new Date().toISOString().split("T")[0],
         Comment: "This application is built with Angular Material"
       }
     ]

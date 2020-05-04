@@ -2,7 +2,7 @@
     <button mat-flat-button color="warn" (click)="generateInvoice()">Generate Invoice</button>
 </div>
 <div class="mb-20">
-    <app-table [title]="'fee'" [pageSize]="10" [actions]="true" [canEdit]="true" [canSelect]="true"
+    <app-table [title]="'fee'" [tableClass]="'service-fee-table'" [pageSize]="10" [actions]="true" [canEdit]="true" [canSelect]="true"
         [tableData]="tableData" [tableHeaders]="tableHeaders" (editEvent)="edit($event)"
         (selectFieldsEvent)="select($event)"></app-table>
 </div>

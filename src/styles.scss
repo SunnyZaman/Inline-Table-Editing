@@ -40,7 +40,11 @@ mat-icon:focus { outline:0 !important; }
     .mat-form-field-subscript-wrapper {
       min-height: calc(1em + 1px);
     }
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+  }
 }
+
 
 .comment-info{
     font-style: italic;

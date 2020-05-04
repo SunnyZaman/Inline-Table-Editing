@@ -9,10 +9,11 @@ import { FormBuilder } from '@angular/forms';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.None
 })
 export class TableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() tableData: any[];
+  @Input() tableClass: string;
   @Input() tableHeaders;
   @Input() actions;
   @Input() pageSize;
