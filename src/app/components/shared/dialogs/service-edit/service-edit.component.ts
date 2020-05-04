@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-service-edit',
   templateUrl: './service-edit.component.html',
-  styleUrls: ['./service-edit.component.scss']
+  styleUrls: ['./service-edit.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class ServiceEditComponent implements OnInit {
   serviceFeeForm: FormGroup;
@@ -25,6 +26,16 @@ export class ServiceEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.intializeData();
+  }
+  intializeData(){
+    const serviceFee = this.data.feeObj;
+      this.serviceFeeForm.patchValue({
+        serviceType: serviceFee.ServiceType,
+        cost: serviceFee.Cost,
+        quantity: serviceFee.Quantity,
+        total: serviceFee.Total
+      });
   }
   saveFee() {
 

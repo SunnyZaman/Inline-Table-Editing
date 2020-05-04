@@ -6,9 +6,6 @@ label {
     display: block;
     padding-bottom: 2px;
   }
-  mat-form-field{
-    width: 100%;
-}
 .p-15{
   padding:15px;
 }
@@ -20,5 +17,12 @@ label {
 }
 
 .mat-form-field-infix {
-  padding: 0.5em 0 !important;
+  border-top: 0px transparent;
+}
+.service-fee-dialog .mat-form-field-prefix{
+  top: 0 !important; 
+}
+.mat-form-field {
+  width: 100%;
+  display: block;
 }

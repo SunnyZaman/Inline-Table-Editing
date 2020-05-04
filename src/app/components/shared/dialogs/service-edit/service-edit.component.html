@@ -1,10 +1,10 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
-<div mat-dialog-content [formGroup]="serviceFeeForm" class="p-10">
+<div mat-dialog-content [formGroup]="serviceFeeForm" class="service-fee-dialog p-10">
   <div class="w-100" fxLayout="row wrap">
     <!-- Service Type -->
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
-      <label>Service Type:</label>
-      <mat-form-field appearance="outline" floatLabel="never">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Service Type:</mat-label>
         <input matInput type="text" formControlName="serviceType" aria-label="Status type input field.">
         <mat-hint>
           Service type for the fee.
@@ -16,9 +16,10 @@
     </div>
     <!-- Cost -->
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
-      <label>Cost:</label>
-      <mat-form-field appearance="outline" floatLabel="never">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Cost:</mat-label>
         <input matInput type="text" formControlName="cost" aria-label="Cost input field.">
+        <span matPrefix class="custom-prefix">$</span>
         <mat-hint>
           Cost of the fee.
         </mat-hint>
@@ -29,9 +30,10 @@
     </div>
     <!-- Unit Measure -->
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
-      <label>Unit Measure:</label>
-      <mat-form-field appearance="outline" floatLabel="never">
-        <input matInput type="text" formControlName="unitMeasure" aria-label="Unity measure input field.">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Unit Measure:</mat-label>
+        <input matInput type="text" formControlName="unitMeasure" aria-label="Unit measure input field.">
+        <span matPrefix class="custom-prefix">Per</span>
         <mat-hint>
           Unit measure of the service.
         </mat-hint>
@@ -42,8 +44,8 @@
     </div>
     <!-- Quantity -->
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
-      <label>Quantity:</label>
-      <mat-form-field appearance="outline" floatLabel="never">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Quantity:</mat-label>
         <input matInput type="text" formControlName="quantity" aria-label="Quantity input field.">
         <mat-hint>
           Quantity of the service.
@@ -55,9 +57,10 @@
     </div>
     <!-- Total -->
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
-      <label>Total:</label>
-      <mat-form-field appearance="outline" floatLabel="never">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Total:</mat-label>
         <input matInput type="text" formControlName="total" aria-label="Total input field.">
+        <span matPrefix class="custom-prefix">$</span>
         <mat-hint>
           Total fee amount.
         </mat-hint>
