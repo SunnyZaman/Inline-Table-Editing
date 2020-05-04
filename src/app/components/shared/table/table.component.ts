@@ -19,7 +19,8 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() title: string;
   @Input() canEdit;
   @Input() canSelect;
-
+  @Input() isHeaderHidden;
+  
   @Output() editEvent = new EventEmitter<object>();
   @Output() selectFieldsEvent = new EventEmitter<any[]>();
 

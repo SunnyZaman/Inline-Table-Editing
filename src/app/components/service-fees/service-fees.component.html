@@ -1,4 +1,27 @@
-<app-table [title]="'fee'" [pageSize]="10" [actions]="true" [canEdit]="true" [canSelect]="true"
-[tableData]="tableData" [tableHeaders] ="tableHeaders"
-(editEvent)="edit($event)" (selectFieldsEvent)="select($event)"></app-table>
-<button mat-flat-button color="warn">Generate Invoice</button>
+<div fxLayoutAlign="end start" class="mb-10">
+    <button mat-flat-button color="warn">Generate Invoice</button>
+</div>
+<div class="mb-20">
+    <app-table [title]="'fee'" [pageSize]="10" [actions]="true" [canEdit]="true" [canSelect]="true"
+        [tableData]="tableData" [tableHeaders]="tableHeaders" (editEvent)="edit($event)"
+        (selectFieldsEvent)="select($event)"></app-table>
+</div>
+<div class="w-100" fxLayout="row wrap" >
+    <div class="side-padding" fxFlex.xl="25" fxFlex.lg="25" fxFlex.md="25" fxFlex.sm="50" fxFlex.xs="100">
+        <!--  -->
+    </div>
+    <div class="side-padding" fxFlex.xl="25" fxFlex.lg="25" fxFlex.md="25" fxFlex.sm="50" fxFlex.xs="100">
+        <!--  -->
+    </div>
+    <div class="side-padding" fxFlex.xl="25" fxFlex.lg="25" fxFlex.md="25" fxFlex.sm="50" fxFlex.xs="100">
+        <!--  -->
+    </div>
+    <div class="side-padding" fxFlex.xl="25" fxFlex.lg="25" fxFlex.md="25" fxFlex.sm="50" fxFlex.xs="100">
+        <!--  -->
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Total:</mat-label>
+            <input matInput type="text" formControlName="total" aria-label="Total input field.">
+            <mat-icon matPrefix>attach_money</mat-icon>
+        </mat-form-field>
+    </div>
+</div>
