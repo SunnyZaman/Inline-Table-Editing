@@ -18,7 +18,13 @@
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Cost:</mat-label>
-        <input matInput type="text" formControlName="cost" aria-label="Cost input field.">
+        <input *ngIf="!dropdowns" matInput type="number" min="0" formControlName="cost" required aria-label="Cost input field.">
+        <mat-select *ngIf="dropdowns" matNativeControl  required
+          aria-label="Cost dropdown field" formControlName="cost">
+          <mat-option *ngFor="let cost of costDropdown" [value]="cost">
+            {{cost}}
+          </mat-option>
+        </mat-select>
         <span matPrefix class="custom-prefix">$</span>
         <mat-hint>
           Cost of the fee.
@@ -32,7 +38,13 @@
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Unit Measure:</mat-label>
-        <input matInput type="text" formControlName="unitMeasure" aria-label="Unit measure input field.">
+        <input *ngIf="!dropdowns" matInput type="text" formControlName="unitMeasure" required aria-label="Unit measure input field.">
+        <mat-select *ngIf="dropdowns" matNativeControl  required
+          aria-label="Unit Measure dropdown field" formControlName="unitMeasure">
+          <mat-option *ngFor="let unitMeasure of unitMeasureDropdown" [value]="unitMeasure">
+            {{unitMeasure}}
+          </mat-option>
+        </mat-select>
         <span matPrefix class="custom-prefix">Per</span>
         <mat-hint>
           Unit measure of the service.
@@ -46,7 +58,7 @@
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Quantity:</mat-label>
-        <input matInput type="text" formControlName="quantity" aria-label="Quantity input field.">
+        <input matInput type="number" min="0" formControlName="quantity" aria-label="Quantity input field.">
         <mat-hint>
           Quantity of the service.
         </mat-hint>
@@ -73,5 +85,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-stroked-button color="warn" (click)="close()">Close</button>
-  <button mat-stroked-button color="primary"  (click)="saveFee()" [disabled]="invalidStatus()">{{data.saveLabel}}</button>
+  <button mat-stroked-button color="primary" (click)="saveFee()"
+    [disabled]="invalidStatus()">{{data.saveLabel}}</button>
 </div>

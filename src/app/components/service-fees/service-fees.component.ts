@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceFee } from 'src/app/models/service-fee';
-import * as serviceData from "src/assets/service-data";
+import * as serviceData from "src/assets/data/service-data";
 import { ServiceEditComponent } from '../shared/dialogs/service-edit/service-edit.component';
 import { MatDialog } from '@angular/material/dialog';
 import { map, finalize } from "rxjs/operators";
@@ -26,7 +26,7 @@ export class ServiceFeesComponent implements OnInit {
     {
       key: "Cost",
       text: "Cost",
-      cell: (row: any) => `${row.Cost}`
+      cell: (row: any) => `${'$'+row.Cost +'/'+row.UnitMeasure}`
     },
     {
       key: "Quantity",

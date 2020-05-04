@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as dropdownData from "src/assets/data/dropdown-data";
 
 @Component({
   selector: 'app-service-edit',
@@ -8,14 +9,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./service-edit.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ServiceEditComponent implements OnInit {
+export class ServiceEditComponent implements OnInit, AfterViewInit {
   serviceFeeForm: FormGroup;
+  dropdowns: boolean;
+  costDropdown = [];
+  unitMeasureDropdown = [];
+  dropdownData = [];
   constructor(
     private dialogRef: MatDialogRef<ServiceEditComponent>,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private cdr: ChangeDetectorRef
   ) {
-
+    this.dropdownData = dropdownData.default.Data;
     this.serviceFeeForm = this.formBuilder.group({
       serviceType: [{ value: "", disabled: true }, Validators.required],
       cost: [null, Validators.required],
@@ -24,18 +30,35 @@ export class ServiceEditComponent implements OnInit {
       total: [{ value: null, disabled: true }, Validators.required]
     });
   }
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
 
   ngOnInit(): void {
     this.intializeData();
   }
-  intializeData(){
+ 
+  intializeData() {
     const serviceFee = this.data.feeObj;
-      this.serviceFeeForm.patchValue({
-        serviceType: serviceFee.ServiceType,
-        cost: serviceFee.Cost,
-        quantity: serviceFee.Quantity,
-        total: serviceFee.Total
-      });
+    console.log(serviceFee);
+    console.log(this.dropdownData);
+    console.log(this.dropdownData.findIndex(x => x.ServiceType === serviceFee.ServiceType));
+    
+    const index = this.dropdownData.findIndex(x => x.ServiceType === serviceFee.ServiceType);
+    if (index!==-1) {
+      console.log("found");
+      this.dropdowns = true;
+      this.costDropdown = this.dropdownData[index].Cost.Options;
+      this.unitMeasureDropdown = this.dropdownData[index].UnitMeasure.Options;
+    }
+
+    this.serviceFeeForm.patchValue({
+      serviceType: serviceFee.ServiceType,
+      cost: serviceFee.Cost,
+      unitMeasure: serviceFee.UnitMeasure,
+      quantity: serviceFee.Quantity,
+      total: serviceFee.Total
+    });
   }
   saveFee() {
 
