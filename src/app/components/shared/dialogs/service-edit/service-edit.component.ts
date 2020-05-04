@@ -37,15 +37,15 @@ export class ServiceEditComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.intializeData();
   }
- 
+
   intializeData() {
     const serviceFee = this.data.feeObj;
     console.log(serviceFee);
     console.log(this.dropdownData);
     console.log(this.dropdownData.findIndex(x => x.ServiceType === serviceFee.ServiceType));
-    
+
     const index = this.dropdownData.findIndex(x => x.ServiceType === serviceFee.ServiceType);
-    if (index!==-1) {
+    if (index !== -1) {
       console.log("found");
       this.dropdowns = true;
       this.costDropdown = this.dropdownData[index].Cost.Options;
@@ -59,6 +59,25 @@ export class ServiceEditComponent implements OnInit, AfterViewInit {
       quantity: serviceFee.Quantity,
       total: serviceFee.Total
     });
+  }
+  selectChange(event, value) {
+    let result = event.value;
+    console.log(result);
+    let index = 0;
+    switch (value) {
+      case "cost":
+        index = this.costDropdown.findIndex(x => x === result);
+        console.log(index);
+        this.serviceFeeForm.patchValue({ unitMeasure: this.unitMeasureDropdown[index] });
+        break;
+      case "unitMeasure":
+        index = this.unitMeasureDropdown.findIndex(x => x === result);
+        console.log(index);
+        this.serviceFeeForm.patchValue({ cost: this.costDropdown[index] });
+        break;
+      default:
+        break;
+    }
   }
   saveFee() {
 

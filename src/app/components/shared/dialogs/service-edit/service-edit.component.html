@@ -19,7 +19,7 @@
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Cost:</mat-label>
         <input *ngIf="!dropdowns" matInput type="number" min="0" formControlName="cost" required aria-label="Cost input field.">
-        <mat-select *ngIf="dropdowns" matNativeControl  required
+        <mat-select *ngIf="dropdowns" matNativeControl  required (selectionChange)="selectChange($event, 'cost')"
           aria-label="Cost dropdown field" formControlName="cost">
           <mat-option *ngFor="let cost of costDropdown" [value]="cost">
             {{cost}}
@@ -39,7 +39,7 @@
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Unit Measure:</mat-label>
         <input *ngIf="!dropdowns" matInput type="text" formControlName="unitMeasure" required aria-label="Unit measure input field.">
-        <mat-select *ngIf="dropdowns" matNativeControl  required
+        <mat-select *ngIf="dropdowns" matNativeControl  required (selectionChange)="selectChange($event, 'unitMeasure')"
           aria-label="Unit Measure dropdown field" formControlName="unitMeasure">
           <mat-option *ngFor="let unitMeasure of unitMeasureDropdown" [value]="unitMeasure">
             {{unitMeasure}}
