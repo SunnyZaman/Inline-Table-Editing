@@ -1,5 +1,5 @@
 <div fxLayoutAlign="end start" class="mb-10">
-    <button mat-flat-button color="warn" (click)="generateInvoice()">Generate Invoice</button>
+    <button mat-flat-button class="generate-button" [disabled]="!invoiceData.length" (click)="generateInvoice()">Generate Invoice</button>
 </div>
 <div class="mb-20">
     <app-table [title]="'fee'" [tableClass]="'service-fee-table'" [pageSize]="10" [actions]="true" [canEdit]="true" [canSelect]="true"

@@ -5,7 +5,6 @@ import { ServiceEditComponent } from '../shared/dialogs/service-edit/service-edi
 import { MatDialog } from '@angular/material/dialog';
 import { map } from "rxjs/operators";
 import { FormGroup, FormBuilder } from '@angular/forms';
-const DEFAULT = 0;
 @Component({
   selector: 'app-service-fees',
   templateUrl: './service-fees.component.html',
@@ -43,7 +42,6 @@ export class ServiceFeesComponent implements OnInit {
       cell: (row: any) => `${this.formatter.format(row.Total)}`
     }
   ];
-  zero = 0;
   constructor(
     public dialog: MatDialog,
     private formBuilder: FormBuilder,
