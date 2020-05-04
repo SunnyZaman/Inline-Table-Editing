@@ -11,10 +11,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 const MaterialComponents = [
   MatButtonModule,MatDividerModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule,
-  MatSortModule, MatTableModule, MatTooltipModule, MatDialogModule
+  MatSortModule, MatTableModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule
 ]
 @NgModule({
   imports: [MaterialComponents],

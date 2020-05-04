@@ -20,7 +20,7 @@
             </ng-container>
             <!-- Data Columns -->
             <ng-container [matColumnDef]="header.key" *ngFor="let header of tableHeaders; let i = index">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{header.text}}</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [hidden]="isHeaderHidden">{{header.text}}</th>
                 <td mat-cell *matCellDef="let row">{{header.cell(row)}}</td>
             </ng-container>
             <!-- Action Columns-->

@@ -19,7 +19,8 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() title: string;
   @Input() canEdit;
   @Input() canSelect;
-
+  @Input() isHeaderHidden;
+  
   @Output() editEvent = new EventEmitter<object>();
   @Output() selectFieldsEvent = new EventEmitter<any[]>();
 
@@ -56,6 +57,8 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
     this.selectFieldsEvent.emit(fields);
   }
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes.tableData.currentValue);
+    
     this.setDataTable(changes.tableData.currentValue);
   }
 
