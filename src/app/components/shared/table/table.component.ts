@@ -56,6 +56,8 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
     this.selectFieldsEvent.emit(fields);
   }
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes.tableData.currentValue);
+    
     this.setDataTable(changes.tableData.currentValue);
   }
 

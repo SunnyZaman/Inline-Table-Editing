@@ -3,7 +3,7 @@ import { ServiceFee } from 'src/app/models/service-fee';
 import * as serviceData from "src/assets/data/service-data";
 import { ServiceEditComponent } from '../shared/dialogs/service-edit/service-edit.component';
 import { MatDialog } from '@angular/material/dialog';
-import { map, finalize } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-service-fees',
@@ -57,14 +57,9 @@ export class ServiceFeesComponent implements OnInit {
               x => x.Id === result.Id
             );
             this.tableData[index] = result;
-            // this.listLoaded = false;
-            // this.dataChanged();
+            console.log(this.tableData);
+            this.tableData = [...this.tableData];
           }
-      }),
-      finalize(() => {
-        // setTimeout(() => {
-        //   this.listLoaded = true;
-        // }, 250);
       })
     )
     .subscribe();
