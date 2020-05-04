@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewEncapsulation, ChangeDetectorRef, AfterV
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as dropdownData from "src/assets/data/dropdown-data";
+import { ServiceFee } from 'src/app/models/service-fee';
 
 @Component({
   selector: 'app-service-edit',
@@ -80,7 +81,16 @@ export class ServiceEditComponent implements OnInit, AfterViewInit {
     }
   }
   saveFee() {
-
+    const id = this.data.feeObj.Id;
+    const status = new ServiceFee(
+      id,
+      this.form.serviceType.value,
+      this.form.cost.value,
+      this.form.unitMeasure.value,
+      this.form.quantity.value,
+      this.form.total.value,
+    );
+    this.dialogRef.close(status);
   }
   close() {
     this.dialogRef.close(null);
