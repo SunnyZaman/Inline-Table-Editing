@@ -67,6 +67,7 @@ export class ServiceEditComponent implements OnInit, AfterViewInit {
     let index = 0;
     switch (value) {
       case "cost":
+        this.updateTotal(result, value);
         index = this.costDropdown.findIndex(x => x === result);
         console.log(index);
         this.serviceFeeForm.patchValue({ unitMeasure: this.unitMeasureDropdown[index] });
@@ -91,6 +92,13 @@ export class ServiceEditComponent implements OnInit, AfterViewInit {
       this.form.total.value,
     );
     this.dialogRef.close(status);
+  }
+  updateTotal(event, input){
+    const value = event.target!==undefined ? event.target.value.trim() : event;
+    this.serviceFeeForm.get(input).setValue(value);
+    const cost = this.form.cost.value;
+    const quantity = this.form.quantity.value;
+    this.serviceFeeForm.patchValue({total: cost*quantity})
   }
   close() {
     this.dialogRef.close(null);

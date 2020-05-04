@@ -18,7 +18,8 @@
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Cost:</mat-label>
-        <input *ngIf="!dropdowns" matInput type="number" min="0" formControlName="cost" required aria-label="Cost input field.">
+        <input *ngIf="!dropdowns" matInput type="number" min="0" formControlName="cost" required 
+        aria-label="Cost input field." (change)="updateTotal($event, 'cost')">
         <mat-select *ngIf="dropdowns" matNativeControl  required (selectionChange)="selectChange($event, 'cost')"
           aria-label="Cost dropdown field" formControlName="cost">
           <mat-option *ngFor="let cost of costDropdown" [value]="cost">
@@ -58,7 +59,8 @@
     <div class="side-padding" fxFlex.xl="20" fxFlex.lg="20" fxFlex.md="20" fxFlex.sm="50" fxFlex.xs="100">
       <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Quantity:</mat-label>
-        <input matInput type="number" min="0" formControlName="quantity" aria-label="Quantity input field.">
+        <input matInput type="number" min="0" formControlName="quantity" 
+        aria-label="Quantity input field." (change)="updateTotal($event, 'quantity')">
         <mat-hint>
           Quantity of the service.
         </mat-hint>
