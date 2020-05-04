@@ -12,10 +12,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const MaterialComponents = [
   MatButtonModule,MatDividerModule, MatCardModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule,
-  MatSortModule, MatTableModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule
+  MatSortModule, MatTableModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule, MatPaginatorModule
 ]
 @NgModule({
   imports: [MaterialComponents],

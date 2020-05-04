@@ -1,8 +1,8 @@
 <div class="w-100">
-    <div *ngIf="!hasResults">
+    <div [hidden]="hasResults">  <!-- using hidden for mat-paginator-->
         <p>No {{title}}s</p>
     </div>
-    <div [ngClass]="tableClass" *ngIf="hasResults">
+    <div [ngClass]="tableClass" [hidden]="!hasResults">
     <div class="table-container">
         <table mat-table  [dataSource]="dataSource" matSort>
             <!-- Checkbox Column -->
@@ -40,6 +40,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize"></mat-paginator>
     </div>
     </div>
 </div>

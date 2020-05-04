@@ -48,7 +48,7 @@ export class CommentsComponent implements OnInit {
       Comment: comment
     });
     this.comments = [...this.comments];
-   
+    this.commentForm.patchValue({ comment: "" });
   }
 
 }
