@@ -19,7 +19,7 @@ export class CommentsComponent implements OnInit {
     {
       key: "Comment",
       text: "Comment",
-      cell: (row: any) => `<div class="comment-container"><div class="comment-cell">${row.Comment}</div></div>`
+      cell: (row: any) => `${row.Comment}`
     },
   ];
   constructor(

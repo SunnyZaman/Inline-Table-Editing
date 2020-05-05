@@ -31,15 +31,32 @@
   }
 }
 .comment-table{
-  td, th {
-    padding: 0 5px !important;
+  .table-container {
+    overflow: auto;
+    height:450px;
+    table {
+      width: 100%;
+      min-width: 300px;
+      overflow: scroll;
+      max-height: 100px;
+      td, th {
+        padding: 0 5px !important;
+        }
+        tr.mat-footer-row {
+          height: 10px !important;
+          overflow: auto;
+      }
+      .mat-column-Comment {
+        vertical-align: top;
+        white-space: pre-wrap;       /* css-3 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        word-break: break-all;
+        white-space: normal;
+      }
+      .mat-cell:first-of-type, .mat-header-cell:first-of-type{
+        width: 80px;
+      }
     }
-    tr.mat-footer-row {
-      height: 10px !important;
-      overflow: auto;
-  }
-  .mat-column-Comment {
-    vertical-align: top;
   }
 }
 // Edit button
