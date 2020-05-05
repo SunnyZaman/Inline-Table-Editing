@@ -1,3 +1,5 @@
+// Service Fee Table
+.service-fee-table {
 .table-container {
     overflow: auto;
     table {
@@ -27,7 +29,19 @@
           }
     }
   }
-
+}
+.comment-table{
+  td, th {
+    padding: 0 5px !important;
+    }
+    tr.mat-footer-row {
+      height: 10px !important;
+      overflow: auto;
+  }
+  .mat-column-Comment {
+    vertical-align: top;
+  }
+}
 // Edit button
 .edit-button {
   background-color: #ffffff;

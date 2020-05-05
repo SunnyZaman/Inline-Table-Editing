@@ -1,8 +1,18 @@
+<app-table [title]="'comment'" [pageSize]="5" [pageSizeOptions]="[5]" [tableData]="comments" [tableClass]="'comment-table'" [tableHeaders]="tableHeaders"
+    [isHeaderHidden]="true"></app-table>
+<form [formGroup]="commentForm">
     <label>Comments:</label>
     <mat-form-field appearance="outline" floatLabel="never">
-        <textarea matInput matTextareaAutosize required matAutoSize type="text" [matAutosizeMinRows]="5"
-            [matAutosizeMaxRows]="5" aria-label="Comment Section"></textarea>
+        <textarea matInput matTextareaAutosize matAutoSize type="text" [matAutosizeMinRows]="3"
+            [matAutosizeMaxRows]="3" aria-label="Comment Section" formControlName="comment"  maxlength="255"></textarea>
+            <div fxLayoutAlign="end center">
+            <mat-hint >
+                    {{commentForm.get('comment').value?.length}} /255
+                </mat-hint>
+            </div>
     </mat-form-field>
-    <div fxLayoutAlign="end start">
-        <button mat-flat-button color="primary" aria-label="Add comment">Add Comment</button>
-    </div>
+</form>
+<div fxLayoutAlign="end start">
+    <button mat-flat-button color="primary" aria-label="Add comment" [disabled]="!commentForm.get('comment').value.length" 
+    (click)="addComment()">Add Comment</button>
+</div>

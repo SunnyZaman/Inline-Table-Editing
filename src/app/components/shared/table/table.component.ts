@@ -9,17 +9,19 @@ import { FormBuilder } from '@angular/forms';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.None
 })
 export class TableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() tableData: any[];
+  @Input() tableClass: string;
   @Input() tableHeaders;
   @Input() actions;
   @Input() pageSize;
+  @Input() pageSizeOptions;
   @Input() title: string;
-  @Input() canEdit;
-  @Input() canSelect;
-  @Input() isHeaderHidden;
+  @Input() canEdit:boolean;
+  @Input() canSelect:boolean;
+  @Input() isHeaderHidden:boolean;
   
   @Output() editEvent = new EventEmitter<object>();
   @Output() selectFieldsEvent = new EventEmitter<any[]>();
@@ -30,7 +32,7 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
   hasResults = false;
   displayedColumns;
   actionsLocal = false;
-  pageSizeOptions = [5, 10, 25, 100];
+  // pageSizeOptions = [5, 10, 25, 100];
   // pageSize: number = 5;
   dataSource: MatTableDataSource<any>;
 
